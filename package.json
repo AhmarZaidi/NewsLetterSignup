@@ -1,0 +1,14 @@
+{
+  "name": "newslettersignup",
+  "version": "1.0.0",
+  "description": "News Letter.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ahmar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
