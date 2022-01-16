@@ -35,13 +35,13 @@ app.post("/", function(req, res){  // At localhost:{PORT}/
     const jsonData = JSON.stringify(data);
  
     const url = "https://us" + process.env.REGION + ".api.mailchimp.com/3.0/lists/" + process.env.LIST_ID; 
-    console.log(url);
+    // console.log(url);
     
     const options = {
         method: "POST",
         auth: "chimp:" + process.env.API_KEY
     }
-    console.log(options.auth);
+    // console.log(options.auth);
     
     const request = https.request(url, options, function(response){
         
