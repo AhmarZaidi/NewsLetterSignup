@@ -7,18 +7,17 @@ var port = 3000; // localhost:3000
 // app.use(express.json()); // Used to parse JSON bodies
 app.use(express.urlencoded({extended: true})); // Parse URL-encoded bodies (generally used when getting data from HTML forms)
 
-app.use(express.static("public")); // public folder has shared files ike
+app.use(express.static("public")); // public folder has shared files
 
-app.get("/", function(req, res){ // At localhost:{PORT}/
+app.get("/", function(req, res){ 
     res.sendFile(__dirname + "/signup.html");
 });
 
-app.post("/", function(req, res){  // At localhost:{PORT}/
+app.post("/", function(req, res){ 
     
     const firstName = req.body.fName;
     const lastName = req.body.lName;
     const email = req.body.email;
-    // console.log(firstName, lastName, email);
 
     const data = {
         members: [
@@ -45,15 +44,14 @@ app.post("/", function(req, res){  // At localhost:{PORT}/
     
     const request = https.request(url, options, function(response){
         
-        // console.log(response.statusCode);
         if(response.statusCode === 200)
             res.sendFile(__dirname + "/success.html")
         else
             res.sendFile(__dirname + "/failure.html")
 
-        response.on("data", function(data){
-            // console.log(JSON.parse(data));
-        })
+        // response.on("data", function(data){
+        //     // console.log(JSON.parse(data));
+        // })
     });
 
     request.write(jsonData);
